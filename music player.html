@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f5f5f5; 
+            background-image: radial-gradient(circle, #fff 1%, transparent 1%),
+                              radial-gradient(circle, #fff 1%, transparent 1%);
+            background-size: 20px 20px; 
+            background-position: 0 0, 10px 10px; 
+            animation: bubble-animation 30s linear infinite; 
+        }
+
+        @keyframes bubble-animation {
+            from {
+                background-position: 0 0, 0 0;
+            }
+            to {
+                background-position: 1000px 1000px, 500px 500px;
+            }
+        }
+
+        #music-player {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        #controls {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #track-info {
+            margin-top: 20px;
+        }
+
+        #track-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="music-player">
+        <h1>Music Player</h1>
+        <audio id="audio-player" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <div id="controls">
+            <button id="prev">Previous</button>
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="next">Next</button>
+        </div>
+        <div id="track-info">
+            <p id="track-title">Track Title</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audioPlayer = document.getElementById('audio-player');
+            const playButton = document.getElementById('play');
+            const pauseButton = document.getElementById('pause');
+            const prevButton = document.getElementById('prev');
+            const nextButton = document.getElementById('next');
+            const trackTitle = document.getElementById('track-title');
+
+            const tracks = [
+                { title: "sooseki", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+                { title: "gumma song", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+                { title: "kannulloni ", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+                { title: "kalyani vacha vacha", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" }
+            ];
+
+            let currentTrackIndex = 0;
+
+            function loadTrack(index) {
+                audioPlayer.src = tracks[index].src;
+                trackTitle.textContent = tracks[index].title;
+                audioPlayer.load(); // Load the new track
+            }
+
+            playButton.addEventListener('click', () => {
+                audioPlayer.play().catch(error => {
+                    console.error("Error playing the audio file:", error);
+                });
+            });
+
+            pauseButton.addEventListener('click', () => {
+                audioPlayer.pause();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                loadTrack(currentTrackIndex);
+                audioPlayer.play().catch(error => {
+                    console.error("Error playing the audio file:", error);
+                });
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                loadTrack(currentTrackIndex);
+                audioPlayer.play().catch(error => {
+                    console.error("Error playing the audio file:", error);
+                });
+            });
+
+            // Initial load
+            loadTrack(currentTrackIndex);
+        });
+    </script>
+</body>
+</html>
