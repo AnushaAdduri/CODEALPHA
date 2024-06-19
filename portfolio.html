@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anusha Adduri - Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .navbar {
+            margin-bottom: 50px;
+        }
+        
+        header.jumbotron {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 100px 25px;
+            color: white;
+        }
+        
+        header.jumbotron h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s;
+        }
+        
+        section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+        
+        .card {
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+        }
+
+        .btn {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #007bff;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Anusha Adduri</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="jumbotron text-center">
+        <h1 class="display-4">Hello, I'm Anusha Adduri</h1>
+        <p class="lead">Aspiring Full-Stack Developer</p>
+        <a href="https://www.linkedin.com/in/anusha-adduri-742022269" class="btn btn-primary" target="_blank">LinkedIn</a>
+        <a href="https://github.com/AnushaAdduri" class="btn btn-dark" target="_blank">GitHub</a>
+    </header>
+
+    <section id="about" class="container mt-5">
+        <h2>About Me</h2>
+        <p>I'm currently pursuing a Bachelor of Science in Computer Science at RGUKT IIIT Srikakulam, Andhra Pradesh. I have experience in web development and have worked on various projects using technologies such as React.js, Django, Angular, and more.</p>
+    </section>
+
+    <section id="portfolio" class="container mt-5">
+        <h2>Portfolio</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">To-Do List</h5>
+                        <p class="card-text">A simple and functional To-Do List application using HTML, CSS, and JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Music Player</h5>
+                        <p class="card-text">A Music Player application developed using HTML, CSS, and JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Website</h5>
+                        <p class="card-text">Developed a full-stack blog website using React.js and Django.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Calculator</h5>
+                        <p class="card-text">Created a calculator web application using Angular and Flask.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Weather Forecast App</h5>
+                        <p class="card-text">Developed a weather forecast web app using React.js and a weather API.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="container mt-5">
+        <h2>Resume</h2>
+        <p>Download my resume <a href="C:\Users\Adduri Anusha\Desktop\Codealpha" download>here</a>.</p>
+    </section>
+
+    <section id="contact" class="container mt-5 mb-5">
+        <h2>Contact</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </section>
+
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Anusha Adduri. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            if (name && email && message) {
+               
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
+</body>
+</html>
